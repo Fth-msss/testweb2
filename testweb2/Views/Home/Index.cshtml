@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+<div class="text-center">
+    <h1 class="display-4">Windows font haha</h1>
+    <p>testing random elements also <a href="https://docs.microsoft.com/aspnet/core">this is a href</a>.</p>
+</div>
+
+<h1>Click Counter</h1>
+
+<p>Click Count: @ViewBag.ClickCount</p>
+
+<form asp-action="Increment" method="post">
+    <input type="hidden" name="clickCount" value="@ViewBag.ClickCount" />
+    <button type="submit">Click Me</button>
+</form>
+
+<iframe width="110" height="200" src="https://www.myinstants.com/instant/bowser-showtime/embed/" frameborder="0" scrolling="no"></iframe>
+
+<h1>Input Processor</h1>
+
+<form id="inputForm">
+    <label for="userInput">Enter text:</label>
+    <input type="text" id="userInput" name="userInput" />
+    <button type="button" id="processButton">Process</button>
+</form>
+
+<p>Processed Output: <span id="processedOutput"></span></p>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#processButton').click(function() {
+            var userInput = $('#userInput').val();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ProcessInput", "Home")',
+                data: { userInput: userInput },
+                success: function(response) {
+                    $('#processedOutput').text(response.ProcessedOutput);
+                }
+            });
+        });
+    });
+</script>
+

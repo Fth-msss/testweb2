@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "TestPage";
+}
+
+<h1>About</h1>
+<p>This page is not under "home". also has jquery things.</p>
+
+<div class="jumbotron">
+    <h1 class="display-4">Click Counter</h1>
+    <p class="lead">Click the button to increase the counter.</p>
+    <hr class="my-4">
+    <button id="clickButton" class="btn btn-primary btn-lg">Click Me!</button>
+    <p class="mt-2">You have clicked the button <span id="clickCount">0</span> times.</p>
+</div>
+
+<div class="jumbotron">
+    <h1 class="display-4">Input Editor</h1>
+    <p class="lead">Enter text and click the button to process it.</p>
+    <hr class="my-4">
+    <div class="form-group">
+        <label for="userInput">Enter Text:</label>
+        <input type="text" id="userInput" class="form-control" />
+    </div>
+    <button id="processButton" class="btn btn-primary btn-lg">Process</button>
+    <p class="mt-2">Processed Output: <span id="outputText"></span></p>
+</div>
